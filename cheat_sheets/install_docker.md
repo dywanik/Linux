@@ -7,7 +7,6 @@ sudo apt-get update
 sudo apt-get install -y docker-ce=18.06.1~ce~3-0~ubuntu
 sudo apt-mark hold docker-ce
 ```
-
 ### verify
 ```
 sudo docker version
