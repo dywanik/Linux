@@ -1,4 +1,4 @@
-# Cheat sheet for installing Kubernetes on Ubuntu (after Docker is installed)
+# Cheat sheet for installing Kubernetes on Ubuntu (after Docker is installed) on Master, Node1, Node2.
 ### Add repository and install newest versions (sometimes you might want to specify a version)
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -

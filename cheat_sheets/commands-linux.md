@@ -13,7 +13,15 @@ apt list -a <package>
 ```
 sudo systemctl status <service> -l
 ```
-#### apply configuration that was just written to /etc/sysctl.conf
+#### apply configuration that was just written to unit file (/etc/sysctl.conf)
 ```
 sudo sysctl -p
+```
+#### reload daemons, i.e., after changing configuration
+```
+sudo systemctl daemon-reload
+```
+#### make directory with whole patch
+```
+mkdir -p /full/path/i/want/to/be/created
 ```

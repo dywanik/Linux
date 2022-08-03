@@ -67,3 +67,80 @@ kubectl apply -f pods01.yaml
 ```
 kubectl delete -f pods01.yaml
 ```
+### example of deployment
+```
+cat << EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-products
+  labels:
+    app: store-products
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: store-products
+  template:
+    metadata:
+      labels:
+        app: store-products
+    spec:
+      containers:
+      - name: store-products
+        image: linuxacademycontent/store-products:1.0.0
+        ports:
+        - containerPort: 80
+EOF
+```
+### get list of deployments
+```
+kubectl get deployments
+```
+### get detailed description of deployment
+```
+kubectl describe deployment nginx-deployment
+```
+### example service
+```
+cat << EOF | kubectl apply -f -
+kind: Service
+apiVersion: v1
+metadata:
+  name: store-products
+spec:
+  selector:
+    app: store-products
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+EOF
+```
+### get list of all services or of particular ones
+```
+kubectl get svc
+kubectl get services
+kubectl get svc store-products
+```
+### create new namespace
+```
+kubectl create namespace new-namespace with auto-update (after change occurs)
+```
+### print all pods in new-namespace
+```
+kubectl get pods -n new-namespace -w
+```
+### scaling particular deployment (more pods needed)
+```
+kubectl edit deployment mongodb -n new-namespace
+```
+```
+spec:
+	replicas: n
+```
+exit
+### get information on particular deployment in new-namespace
+```
+kubectl get deployment mongodb -n new-namespace
+```
